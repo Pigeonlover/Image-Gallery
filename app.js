@@ -5,20 +5,38 @@ console.log("hello world");
 
 const images = [
   {
-    url: "url1", //relative path for local images OR link to the image
-    altText: "altText1",
+    url: "https://images.unsplash.com/photo-1549586073-f4c3b7ff044a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", //relative path for local images OR link to the image
+    altText:
+      "Grey pigeon flying over a lake, with blurred hills in the background.",
   },
   {
-    url: "url2",
-    altText: "altText2",
+    url: "https://cdn.pixabay.com/photo/2022/03/25/05/54/bird-7090328_960_720.jpg",
+    altText:
+      "A red and white fantail pigeon standing on a rock, with more fantails in the background.",
   },
   {
-    url: "url3",
-    altText: "altText3",
+    url: "https://cdn.pixabay.com/photo/2018/09/02/10/23/pigeon-3648481_1280.jpg",
+    altText:
+      "A black chequered pigeon drinking from a water fountain of a white stone dog statue.",
   },
 ];
+
 //TODO: I need to create my thumbnail images
 // function createThumbnails(){
+
+function createThumbnails() {
+  const thumbnailBox = document.querySelector("#thumbnail-box");
+  for (image of images) {
+    const imgTag = document.createElement("img");
+    imgTag.src = image.url;
+    imgTag.alt = image.altText;
+    imgTag.className = "thumbnail-image";
+    thumbnailBox.appendChild(imgTag);
+  }
+}
+
+createThumbnails();
+
 // select the DOM element (thumbnail-container) to contain our thumbnails
 //this is a repetitive task --> loop through our array (using the length property)
 //Inside our loop we need to do this:
