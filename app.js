@@ -1,7 +1,6 @@
 console.log("hello world");
 
 //TODO: I need to store my images data
-//You can use images stored locally or images stored remotely (unsplash...)
 
 const images = [
   {
@@ -22,7 +21,6 @@ const images = [
 ];
 
 //TODO: I need to create my thumbnail images
-// function createThumbnails(){
 
 function createThumbnails() {
   const thumbnailBox = document.querySelector("#thumbnail-box");
@@ -31,12 +29,26 @@ function createThumbnails() {
     imgTag.src = image.url;
     imgTag.alt = image.altText;
     imgTag.className = "thumbnail-image";
+    imgTag.addEventListener("click", createLargeImageHandler);
     thumbnailBox.appendChild(imgTag);
   }
 }
 
+//TODO: I need to create my large images
+
+function createLargeImageHandler() {
+  const largeImageBox = document.querySelector("#large-image-box");
+  largeImageBox.innerHTML = null;
+  const largeImg = document.createElement("img");
+  largeImg.src = image.url;
+  largeImg.alt = image.alt;
+  largeImg.className = "large-image";
+  largeImageBox.appendChild(largeImg);
+}
+
 createThumbnails();
 
+//
 // select the DOM element (thumbnail-container) to contain our thumbnails
 //this is a repetitive task --> loop through our array (using the length property)
 //Inside our loop we need to do this:
@@ -45,11 +57,8 @@ createThumbnails();
 // - give each img a className (img.className)
 // - add an event listener to each image --> the event handler of this listener is the function you write to create large images
 // - append the created images to the thumbnail-container
-// }
-
-//TODO: I need to create my large images
-//this task is the event handler for the thumbnail events
-// function createLargeImagesHandler(){
+//
+//
 //select the large-image-container
 //delete the current image in the large-image-container
 // largeImageContainer.innerHTML = null OR ""
