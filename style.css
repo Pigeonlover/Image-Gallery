@@ -1,25 +1,58 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: antiquewhite;
+  background-color: black;
 }
 
 #thumbnail-box {
-  width: 312px;
+  background-color: black;
 
-  margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: clamp(200px, 40vw, 300px);
+
+  top: 1em;
+
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+
+  z-index: 1;
+
+  overflow: auto;
+}
+
+@media screen and (max-width: 500px) {
+  #thumbnail-box {
+    width: clamp(300px, 30vw, 400px);
+    top: auto;
+    bottom: 1em;
+  }
 }
 
 .thumbnail-image {
   width: 100px;
   height: 80px;
   object-fit: cover;
-  aspect-ratio: 1/1;
-  margin: 0 2px;
-  transition: 1;
+  margin: 2px;
+  transition: 0.5s;
 }
 
 .thumbnail-image:hover {
   cursor: pointer;
   opacity: 75%;
+}
+
+.large-image {
+  width: 100vw;
+  height: 100vh;
+
+  object-fit: contain;
+
+  position: fixed;
+  margin: auto;
+  overflow: hidden;
+
+  z-index: 0;
 }
