@@ -39,9 +39,13 @@
   transition: 0.5s;
 }
 
+.thumbnail-image:focus-visible {
+  outline: 3px solid white;
+}
+
 .thumbnail-image:hover {
   cursor: pointer;
-  opacity: 75%;
+  opacity: 0.75;
 }
 
 .large-image {
@@ -55,4 +59,31 @@
   overflow: hidden;
 
   z-index: 0;
+}
+
+button {
+  color: white;
+  background-color: black;
+  font-size: 2em;
+  margin: 10px 10px 10px 10px;
+
+  border-radius: 10px;
+
+  z-index: 2;
+}
+
+#next-image {
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 5%;
+  transform: translate(-50%, -50%);
+}
+
+#previous-image {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 5%;
+  transform: translate(-50%, -50%);
 }
